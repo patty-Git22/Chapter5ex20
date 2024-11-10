@@ -16,13 +16,15 @@ The program should use a loop that repeats until the user correctly guesses the 
 #include <ctime>
 
 using namespace std;
+
 int main()
 {
     const int MIN_VALUE = 1,
-        MAX_VALUE = 10;
+              MAX_VALUE = 10;
 
     int random_num,
-        user_num;
+        user_num,
+        guesses = 0;
 
     unsigned seed = time(0);
 
@@ -34,6 +36,7 @@ int main()
 
     cout << "Guess a number between 1 and 10: ";
     cin >> user_num;
+    guesses++;
 
     while (user_num != random_num)
     {
@@ -44,11 +47,13 @@ int main()
         cout << "Try again: ";
 
         cin >> user_num;
+        guesses;
     }
 
     cout << "\nCorrect! " << endl;
     cout << "Random number = " << random_num << endl;
     cout << "Your guess    = " << user_num << endl;
+    cout << "Number of guesses= " << guesses << endl;
     cout << endl;
 
     return 0;
